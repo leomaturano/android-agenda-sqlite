@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         this.contactList =  this.contactDAO.getContactList();
         this.contactListAdapter = new ContactListAdapter(this.contactList);
 
-        this.recyclerView = (RecyclerView) findViewById(R.id.recycler_view_main);
+        this.recyclerView = findViewById(R.id.recycler_view_main);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         this.recyclerView.setItemAnimator(new DefaultItemAnimator());
         this.recyclerView.setAdapter(this.contactListAdapter);
