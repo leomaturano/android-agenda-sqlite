@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_contato_layout"
+    android:id="@+id/layout_activity_contact"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,7 +25,7 @@
             android:id="@+id/edit_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/e_mail" />
+            android:hint="@string/email" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -33,26 +33,26 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/edit_telefone"
+            android:id="@+id/edit_phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/telefone" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="10dp"
         android:layout_marginTop="20dp"
+        android:minHeight="10dp"
         android:text="@string/salvar"
         android:textColor="@color/colorWhite" />
 
     <ProgressBar
-        android:id="@+id/progress_contato"
+        android:id="@+id/progressBar_contact"
         style="?android:progressBarStyleLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" />
-
 
 </LinearLayout>

@@ -1,15 +1,16 @@
 <resources>
     <string name="app_name">Agenda</string>
     <string name="action_settings">Configurações</string>
-    <string name="name">Nome</string>
-    <string name="phone">Telefone</string>
-    <string name="email">Email</string>
+    <string name="nome">Nome</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">E-mail</string>
     <string name="adress">Endereço</string>
     <string name="save">Salvar</string>
     <string name="save_success">Salvo com sucesso</string>
+    <string name="save_unsuccess">Nao foi possivel salvar</string>
     <string name="cancel">Cancelar</string>
-    <string name="nome">Nome</string>
-    <string name="e_mail">E-mail</string>
-    <string name="telefone">Telefone</string>
     <string name="salvar">Salvar</string>
+    <string name="digite_seu_nome">Digite seu name</string>
+    <string name="digite_seu_email">Digite seu e-mail</string>
+    <string name="digite_seu_telefone">Digite seu phone</string>
 </resources>

@@ -1,8 +1,8 @@
 package dev.maturano.agenda;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,10 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import dev.maturano.agenda.activity.ContatoActivity;
 import dev.maturano.agenda.adapter.ContactListAdapter;
 import dev.maturano.agenda.dao.ContactDAO;
 import dev.maturano.agenda.model.Contact;
@@ -38,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity( new Intent(getApplicationContext(), ContatoActivity.class));
             }
         });
 
@@ -61,6 +62,23 @@ public class MainActivity extends AppCompatActivity {
         this.recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         this.recyclerView.setItemAnimator(new DefaultItemAnimator());
         this.recyclerView.setAdapter(this.contactListAdapter);
+
+        this.recyclerView.addOnItemTouchListener( new RecyclerTouchListener(getApplicationContext(),
+                this.recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Contact contact = contactList.get(position);
+                Intent intent = new Intent(getApplicationContext(), ContatoActivity.class);
+                intent.putExtra("contact", contact);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+                Contact contact = contactList.get(position);
+                Toast.makeText(getApplicationContext(), contact.getPhone(),Toast.LENGTH_LONG).show();
+            }
+        }));
     }
 
     @Override

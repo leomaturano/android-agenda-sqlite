@@ -1,16 +1,20 @@
 package dev.maturano.agenda.model;
 
-public class Contact {
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private long id;
+    private String name;
+    private String email;
+    private String phone;
 
     public Contact() {
-
     }
 
-    public Contact(String nome, String email, String telefone) {
-        this.nome = nome;
+    public Contact(String name, String email, String phone) {
+        this.name = name;
         this.email = email;
-        this.telefone = telefone;
+        this.phone = phone;
     }
 
     public long getId() {
@@ -21,12 +25,12 @@ public class Contact {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -37,15 +41,11 @@ public class Contact {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
-
-    private String nome;
-    private String email;
-    private String telefone;
 }

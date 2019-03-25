@@ -71,8 +71,8 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Contact contact = contactList.get(position);
-        holder.name.setText(contact.getNome());
-        holder.phone.setText(contact.getTelefone());
+        holder.name.setText(contact.getName());
+        holder.phone.setText(contact.getPhone());
         holder.email.setText(contact.getEmail());
     }
 
