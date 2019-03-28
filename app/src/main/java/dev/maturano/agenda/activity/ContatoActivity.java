@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import dev.maturano.agenda.MainActivity;
 import dev.maturano.agenda.R;
+import dev.maturano.agenda.constant.DatabaseConstants;
 import dev.maturano.agenda.dao.ContactDAO;
 import dev.maturano.agenda.model.Contact;
 
@@ -77,32 +79,33 @@ public class ContatoActivity extends AppCompatActivity implements View.OnClickLi
             this.contact.setEmail(this.mContact.email);
             this.contact.setPhone(this.mContact.phone);
 
-
             if (this.contact.getId() > 0) {
                 this.updateContact();
             } else {
                 this.saveContact();
             }
-
         }
     }
 
     private void saveContact() {
         showToastSave(contactDAO.insertContact(this.contact));
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
     private void updateContact() {
         showToastSave(this.contactDAO.updateContact(this.contact));
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
     private void showToastSave(Long resultSave) {
         if (resultSave > 0) {
             Toast.makeText(getApplicationContext(), R.string.save_success, Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
         } else {
             Snackbar.make(this.mViewHolder.layout_contact, R.string.save_unsuccess, Snackbar.LENGTH_LONG).show();
             this.enableProgressBar(View.GONE, true);
+            Log.i("myApp", "Não foi possível Salvar contato = ".concat(this.contact.toString()));
         }
     }
 

@@ -64,6 +64,7 @@ public class ContactDAO {
             contact.setPhone(cursor.getString(cursor.getColumnIndex("telefone")));
             contact.setEmail(cursor.getString(cursor.getColumnIndex("email")));
             contactList.add(contact);
+            Log.i("myApp", DatabaseConstants.TABLE_CONTACT.concat(" get contato = ").concat(contact.toString()));
         }
         cursor.close();
         db.close();
